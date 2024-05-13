@@ -1,0 +1,19 @@
+//Practical no. 4 seven segment 
+
+#include <xc.h>
+#include <pic.h>
+#define _XTAL_FREQ 20000000
+
+void main ()
+{
+    TRISD = 0;
+    unsigned int display[11]={0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+    while (1)
+    {
+        for (int i = 0; i<10; i++)
+        {
+            PORTD = display[i];
+            __delay_ms(500);
+        }
+    }
+}
